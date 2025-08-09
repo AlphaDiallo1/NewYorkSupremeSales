@@ -1,0 +1,5 @@
+order_id,customer_id,store_id,order_date,order_status
+9001,1001,1,2024-11-15 14:25:00,Completed
+9002,1002,2,2024-12-02 18:10:00,Completed
+9003,1003,1,2025-01-05 12:02:00,Completed
+9004,1001,3,2025-02-21 16:40:00,Returned

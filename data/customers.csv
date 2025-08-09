@@ -1,0 +1,4 @@
+customer_id,first_name,last_name,email,phone,dob,gender,city,state,join_date,loyalty_tier
+1001,Alex,Rivera,alex.rivera@example.com,9175550101,1994-08-12,M,Staten Island,NY,2023-01-10,Silver
+1002,Jamie,Chen,jamie.chen@example.com,9175550102,1989-03-22,F,Staten Island,NY,2023-06-18,Gold
+1003,Jordan,Diaz,jordan.diaz@example.com,9175550103,2000-11-05,M,Staten Island,NY,2024-02-07,Bronze

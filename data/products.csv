@@ -1,0 +1,5 @@
+product_id,product_name,category,brand,unit_cost,unit_price,active_flag
+501,HyperGrip Basketball 29.5",Basketball,Spalding,18.00,34.99,TRUE
+502,Metro Running Shoes M9,Running,Nike,48.00,89.99,TRUE
+503,Pro Training Shorts L,Training,Adidas,12.00,24.99,TRUE
+504,NYSS Water Bottle 1L,Accessories,NYSS,3.00,9.99,TRUE

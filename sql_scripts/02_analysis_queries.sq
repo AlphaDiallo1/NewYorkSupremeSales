@@ -1,0 +1,63 @@
+-- ===============================
+-- 1) Monthly Revenue by Store
+-- ===============================
+WITH line_revenue AS (
+  SELECT DATE_TRUNC('month', o.order_date) AS month,
+         s.store_id,
+         SUM((oi.unit_price*oi.quantity) - COALESCE(oi.discount_amount,0)) AS gross_revenue
+  FROM orders o
+  JOIN order_items oi ON oi.order_id = o.order_id
+  JOIN stores s ON s.store_id = o.store_id
+  WHERE o.order_status = 'Completed'
+  GROUP BY 1,2
+)
+SELECT month, store_id, gross_revenue
+FROM line_revenue
+ORDER BY month, store_id;
+
+-- ===============================
+-- 2) Top Products by Category (90d)
+-- ===============================
+WITH recent AS (
+  SELECT o.order_id
+  FROM orders o
+  WHERE o.order_status='Completed'
+    AND o.order_date >= DATE_TRUNC('day', CURRENT_DATE) - INTERVAL '90 days'
+)
+SELECT p.category, p.product_name,
+       SUM(oi.quantity) AS units_sold,
+       SUM((oi.unit_price*oi.quantity)-COALESCE(oi.discount_amount,0)) AS net_sales
+FROM recent r
+JOIN order_items oi ON oi.order_id = r.order_id
+JOIN products p ON p.product_id = oi.product_id
+GROUP BY p.category, p.product_name
+ORDER BY p.category, units_sold DESC;
+
+-- ===============================
+-- 3) RFM-lite Segmentation
+-- ===============================
+WITH orders_clean AS (
+  SELECT * FROM orders WHERE order_status='Completed'
+),
+cust_agg AS (
+  SELECT o.customer_id,
+         COUNT(DISTINCT o.order_id) AS order_count,
+         AVG((oi.unit_price*oi.quantity)-COALESCE(oi.discount_amount,0)) AS avg_order_value,
+         MAX(o.order_date) AS last_order_date
+  FROM orders_clean o
+  JOIN order_items oi ON oi.order_id = o.order_id
+  GROUP BY o.customer_id
+),
+scored AS (
+  SELECT c.*,
+         NTILE(4) OVER (ORDER BY order_count) AS freq_q,
+         NTILE(4) OVER (ORDER BY avg_order_value) AS aov_q,
+         NTILE(4) OVER (ORDER BY last_order_date DESC) AS rec_q
+  FROM cust_agg c
+)
+SELECT *,
+       CASE WHEN freq_q=4 AND aov_q=4 AND rec_q=4 THEN 'Platinum'
+            WHEN freq_q>=3 AND aov_q>=3 THEN 'Gold'
+            WHEN freq_q>=2 AND aov_q>=2 THEN 'Silver'
+            ELSE 'Bronze' END AS rfm_segment
+FROM scored;

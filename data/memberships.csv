@@ -1,0 +1,4 @@
+membership_id,customer_id,start_date,end_date,plan,status
+7001,1001,2023-01-15,,Plus,Active
+7002,1002,2023-06-20,,Pro,Active
+7003,1003,2024-02-10,2025-02-10,Basic,Cancelled

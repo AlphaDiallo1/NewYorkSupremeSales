@@ -1,0 +1,9 @@
+\copy stores FROM 'data/stores.csv' DELIMITER ',' CSV HEADER;
+\copy customers FROM 'data/customers.csv' DELIMITER ',' CSV HEADER;
+\copy products FROM 'data/products.csv' DELIMITER ',' CSV HEADER;
+\copy orders FROM 'data/orders.csv' DELIMITER ',' CSV HEADER;
+\copy order_items FROM 'data/order_items.csv' DELIMITER ',' CSV HEADER;
+\copy memberships FROM 'data/memberships.csv' DELIMITER ',' CSV HEADER;
+\copy events FROM 'data/events.csv' DELIMITER ',' CSV HEADER;
+\copy event_registrations FROM 'data/event_registrations.csv' DELIMITER ',' CSV HEADER;
+\copy inventory_snapshots FROM 'data/inventory_snapshots.csv' DELIMITER ',' CSV HEADER;
