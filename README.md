@@ -100,27 +100,8 @@ Analyze customer behavior using:
 - **Community Engagement**: Measure success of local basketball tournaments and clinics
 - **Loyalty Program**: Optimize Bronze/Silver/Gold/Platinum tier benefits
 
-##  Staten Island Focus
 
-This system is specifically designed for Staten Island's sporting goods market, featuring:
-- **Local Events**: Basketball tournaments and training clinics
-- **Community Integration**: Neighborhood-based store operations
-- **Regional Demographics**: Staten Island customer base analysis
 
-##  Data Updates
 
-The system supports:
-- **Real-time POS Integration**: Live order and inventory updates
-- **Batch Processing**: Daily/weekly data imports
-- **Historical Analysis**: Trend analysis over time
-- **Seasonal Adjustments**: Sports equipment demand fluctuations
-
-## Contact
-
-For questions about the New York Supreme Sales analytics system, please refer to the documentation in the `sql_scripts/` directory or examine the sample data in the `data/` folder.
-
----
-
-*Built for New York Supreme Sales - Staten Island's premier destination for basketball, running, and training equipment* 🏀🏃‍♂️💪
 
 
