@@ -115,11 +115,12 @@ The system supports:
 - **Historical Analysis**: Trend analysis over time
 - **Seasonal Adjustments**: Sports equipment demand fluctuations
 
-## 📞 Contact
+## Contact
 
 For questions about the New York Supreme Sales analytics system, please refer to the documentation in the `sql_scripts/` directory or examine the sample data in the `data/` folder.
 
 ---
 
 *Built for New York Supreme Sales - Staten Island's premier destination for basketball, running, and training equipment* 🏀🏃‍♂️💪
+
 
